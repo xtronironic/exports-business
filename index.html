@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTRONIC EXPORTS.</title>
+    <meta name="description" content="WE EXPORT GREEN CHILLIES AND ONIONS FROM INDIA TO THE REST OF THE WORLD.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="scroll-progress"></div>
+        <div class="logo">XTRONIC</div>
+        <div class="nav-links">
+            <a href="#products">PRODUCTS.</a>
+            <a href="#process">PROCESS.</a>
+            <a href="#contact">CONTACT.</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">XTRONIC EXPORTS.</h1>
+            <h2 class="hero-subtitle">WE EXPORT GREEN CHILLIES AND ONIONS FROM INDIA TO THE REST OF THE WORLD.</h2>
+            <button class="cta-btn" aria-label="Inquire for shipment" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                INQUIRE FOR SHIPMENT
+            </button>
+        </div>
+    </section>
+
+    <!-- Product Catalog (CSS Scroll-Snap) -->
+    <section id="products" class="products">
+        <div class="section-banner">
+            <h2>THESE ARE OUR PRODUCTS. SCROLL RIGHT. <i data-lucide="arrow-right"></i></h2>
+        </div>
+        
+        <div class="products-container">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-visual">
+                    <div class="deadpan-image">THIS IS A GREEN CHILLY.</div>
+                </div>
+                <div class="product-info">
+                    <h3>GREEN CHILLIES</h3>
+                    <p class="plain-desc">FRESH. SPICY. PACKAGED IN VENTILATED CRATES. SHIPPED VIA AIR OR SEA.</p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <span class="spec-label">MOISTURE LEVEL</span>
+                            <span class="spec-value">OPTIMAL</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">SHELF LIFE</span>
+                            <span class="spec-value">14 DAYS (CHILLED)</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">PACKAGING</span>
+                            <span class="spec-value">5KG, 10KG, CUSTOM</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">TARGET PORTS</span>
+                            <span class="spec-value">GLOBAL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-visual">
+                    <div class="deadpan-image">THIS IS AN ONION.</div>
+                </div>
+                <div class="product-info">
+                    <h3>ONIONS</h3>
+                    <p class="plain-desc">RED AND YELLOW ONIONS. CURED PROPERLY. PACKAGED IN MESH BAGS. LONG SHELF LIFE.</p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <span class="spec-label">SIZE GRADING</span>
+                            <span class="spec-value">45MM+, 55MM+</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">PACKING</span>
+                            <span class="spec-value">10KG, 25KG, 50KG MESH BAGS</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">TEMP CONTROL</span>
+                            <span class="spec-value">STANDARD</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">TARGET PORTS</span>
+                            <span class="spec-value">GLOBAL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export & Logistics Process (GSAP Pinned Timeline) -->
+    <section id="process" class="process">
+        <div class="process-left">
+            <h2 class="sticky-title">THIS IS OUR PROCESS.</h2>
+        </div>
+        <div class="process-right">
+            <div class="process-step">
+                <div class="step-number">STEP 01</div>
+                <h3 class="step-title">FARM SOURCING</h3>
+            </div>
+            <div class="process-step">
+                <div class="step-number">STEP 02</div>
+                <h3 class="step-title">QUALITY INSPECTION & SORTING</h3>
+            </div>
+            <div class="process-step">
+                <div class="step-number">STEP 03</div>
+                <h3 class="step-title">COLD STORAGE & PACKAGING</h3>
+            </div>
+            <div class="process-step">
+                <div class="step-number">STEP 04</div>
+                <h3 class="step-title">GLOBAL SHIPPING & CUSTOMS CLEARANCE</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Order Section -->
+    <section id="contact" class="contact">
+        <div class="contact-header">
+            <h2>CONTACT US TO BUY IN BULK.</h2>
+            <div class="contact-direct-info">
+                <p><a href="mailto:jeelp3801@gmail.com">JEELP3801@GMAIL.COM</a></p>
+                <p>+91 9909911660</p>
+            </div>
+        </div>
+        <form id="contact-form" class="plain-form" action="https://formsubmit.co/ajax/jeelp380@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="contact-info">EMAIL OR WHATSAPP NUMBER</label>
+                <input type="text" id="contact-info" name="contact-info" required>
+            </div>
+            <div class="form-group">
+                <label for="product-select">PRODUCT SELECTION</label>
+                <div class="select-wrapper">
+                    <select id="product-select" name="product-select" required>
+                        <option value="">SELECT A PRODUCT</option>
+                        <option value="chillies">GREEN CHILLIES</option>
+                        <option value="onions">ONIONS</option>
+                        <option value="both">BOTH GREEN CHILLIES AND ONIONS</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="select-icon"></i>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="quantity">QUANTITY (METRIC TONS)</label>
+                    <input type="number" id="quantity" name="quantity" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="port">DESTINATION PORT</label>
+                    <input type="text" id="port" name="port" required>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">SUBMIT INQUIRY</button>
+            <div id="form-message" class="form-message">INQUIRY RECEIVED. WE WILL CONTACT YOU.</div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>XTRONIC EXPORTS.</p>
+            <p>ORIGIN: INDIA.</p>
+            <p>DESTINATION: WORLDWIDE.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
