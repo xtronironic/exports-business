@@ -2,32 +2,27 @@
    VARIABLES & RESET
 ========================================= */
 :root {
-    --bg-color: #090949;
+    --bg-color: #000000;
     --text-color: #FFFFFF;
     --border-color: #FFFFFF;
+    --accent-color: #222222;
     --font-main: 'Inter', Helvetica, Arial, sans-serif;
     --border-width: 2px;
 }
 
-*,
-*::before,
-*::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 html {
     scroll-behavior: smooth;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 body {
-    background-color: #090949;
-    color: #FFFFFF;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: var(--font-main);
     text-transform: uppercase;
     line-height: 1.4;
@@ -36,8 +31,7 @@ body {
 }
 
 a {
-    color: #FFFFFF;
-    background-color: #090949;
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -47,24 +41,21 @@ a {
 h1, h2, h3 {
     font-weight: 900;
     letter-spacing: -0.02em;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 p {
     font-weight: 700;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .lucide {
     width: 24px;
     height: 24px;
     stroke-width: 3px;
-    color: #FFFFFF;
-    background-color: transparent;
 }
 
+/* =========================================
+   NAVIGATION (STICKY WITH AUTO-HIDE & PROGRESS)
+========================================= */
 /* =========================================
    NAVIGATION (STICKY WITH AUTO-HIDE & PROGRESS)
 ========================================= */
@@ -73,18 +64,19 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 2rem;
-    border-bottom: var(--border-width) solid #FFFFFF;
+    border-bottom: var(--border-width) solid var(--border-color);
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
-    background-color: #090949;
-    color: #FFFFFF;
+    background: var(--bg-color);
     z-index: 1000;
-    overflow: hidden;
+    overflow: hidden; /* Clips off-screen skew bleed */
+    
+    /* Smooth slide-up auto-hide transition */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
 
+/* Hidden state: slides up off-screen */
 .navbar.nav-hidden {
     transform: translateY(-100%);
     opacity: 0;
@@ -99,13 +91,12 @@ p {
     left: -100px;
     height: calc(100% + 40px);
     width: 100px;
-    background-color: #090949;
+    background-color: #FFFFFF;
     z-index: 1;
     pointer-events: none;
     will-change: width, transform;
     transform-origin: left center;
 }
-
 /* Rolling Liquid Wave on the Leading Edge */
 .wave-edge {
     position: absolute;
@@ -113,8 +104,7 @@ p {
     right: -24px;
     width: 25px;
     height: 300%;
-    background-color: #090949;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C15,25 15,25 0,50 C15,75 15,75 0,100 L0,100 L0,0 Z' fill='%23090949'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C15,25 15,25 0,50 C15,75 15,75 0,100 L0,100 L0,0 Z' fill='%23FFFFFF'/%3E%3C/svg%3E");
     background-repeat: repeat-y;
     background-size: 25px 100px;
     animation: waveRipple 2s linear infinite;
@@ -129,13 +119,14 @@ p {
     }
 }
 
-.logo,
+/* Text inversion layering */
+.logo, 
 .nav-links,
 .nav-links a {
     position: relative;
     z-index: 2;
     color: #FFFFFF;
-    background-color: #090949;
+    mix-blend-mode: difference;
 }
 
 .logo {
@@ -158,8 +149,6 @@ p {
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 2px;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 /* =========================================
@@ -171,23 +160,17 @@ p {
     flex-direction: column;
     justify-content: center;
     padding: 8rem 2rem 4rem;
-    border-bottom: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
-    color: #FFFFFF;
+    border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .hero-content {
     max-width: 1200px;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .hero-title {
     font-size: clamp(3rem, 8vw, 7rem);
     line-height: 0.9;
     margin-bottom: 2rem;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .hero-subtitle {
@@ -195,45 +178,39 @@ p {
     font-weight: 700;
     max-width: 800px;
     margin-bottom: 4rem;
-    color: #FFFFFF;
-    background-color: #090949;
+    color: #ccc;
 }
 
 .cta-btn {
-    background-color: #090949;
-    color: #FFFFFF;
-    border: var(--border-width) solid #FFFFFF;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: var(--border-width) solid var(--border-color);
     padding: 1.5rem 3rem;
     font-size: 1.2rem;
     font-weight: 900;
     font-family: inherit;
     text-transform: uppercase;
     cursor: pointer;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .cta-btn:hover {
-    background-color: #090949;
-    color: #FFFFFF;
-    opacity: 0.85;
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 /* =========================================
    PRODUCTS (CSS SCROLL-SNAP)
 ========================================= */
 .products {
-    border-bottom: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
-    color: #FFFFFF;
+    border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .section-banner {
     padding: 2rem;
-    border-bottom: var(--border-width) solid #FFFFFF;
+    border-bottom: var(--border-width) solid var(--border-color);
     display: flex;
     align-items: center;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .section-banner h2 {
@@ -241,8 +218,6 @@ p {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .products-container {
@@ -250,7 +225,6 @@ p {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    background-color: #090949;
 }
 
 .products-container::-webkit-scrollbar {
@@ -263,9 +237,7 @@ p {
     scroll-snap-align: start;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-right: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
-    color: #FFFFFF;
+    border-right: var(--border-width) solid var(--border-color);
 }
 
 .product-card:last-child {
@@ -274,17 +246,16 @@ p {
 
 .product-visual {
     padding: 4rem;
-    border-right: var(--border-width) solid #FFFFFF;
+    border-right: var(--border-width) solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #090949;
 }
 
 .deadpan-image {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    border: var(--border-width) solid #FFFFFF;
+    aspect-ratio: 1/1;
+    border: var(--border-width) solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -292,8 +263,6 @@ p {
     font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 900;
     padding: 2rem;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .product-info {
@@ -301,57 +270,45 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .product-info h3 {
     font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 2rem;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .plain-desc {
     font-size: 1.25rem;
     margin-bottom: 4rem;
     line-height: 1.6;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .specs-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0;
-    border-top: var(--border-width) solid #FFFFFF;
-    border-left: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
+    border-top: var(--border-width) solid var(--border-color);
+    border-left: var(--border-width) solid var(--border-color);
 }
 
 .spec-item {
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    border-bottom: var(--border-width) solid #FFFFFF;
-    border-right: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
-    color: #FFFFFF;
+    border-bottom: var(--border-width) solid var(--border-color);
+    border-right: var(--border-width) solid var(--border-color);
 }
 
 .spec-label {
     font-size: 0.875rem;
     font-weight: 900;
-    color: #FFFFFF;
-    background-color: #090949;
+    color: #999;
     margin-bottom: 0.5rem;
 }
 
 .spec-value {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 /* =========================================
@@ -359,18 +316,14 @@ p {
 ========================================= */
 .process {
     display: flex;
-    border-bottom: var(--border-width) solid #FFFFFF;
+    border-bottom: var(--border-width) solid var(--border-color);
     position: relative;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .process-left {
     width: 50%;
-    border-right: var(--border-width) solid #FFFFFF;
+    border-right: var(--border-width) solid var(--border-color);
     padding: 4rem;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .sticky-title {
@@ -378,14 +331,10 @@ p {
     top: calc(50vh - 2rem);
     font-size: clamp(3rem, 5vw, 5rem);
     line-height: 1;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .process-right {
     width: 50%;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .process-step {
@@ -394,9 +343,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
-    color: #FFFFFF;
+    border-bottom: var(--border-width) solid var(--accent-color);
     opacity: 0.2;
     transition: opacity 0.4s ease, border-color 0.4s ease;
 }
@@ -407,22 +354,19 @@ p {
 
 .process-step.is-active {
     opacity: 1;
-    border-color: #FFFFFF;
+    border-color: var(--border-color);
 }
 
 .step-number {
     font-size: 1.5rem;
     font-weight: 900;
     margin-bottom: 2rem;
-    color: #FFFFFF;
-    background-color: #090949;
+    color: #999;
 }
 
 .step-title {
     font-size: clamp(2rem, 4vw, 4rem);
     line-height: 1.1;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 /* =========================================
@@ -431,49 +375,39 @@ p {
 .contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: var(--border-width) solid #FFFFFF;
-    align-items: stretch;
-    background-color: #090949;
-    color: #FFFFFF;
+    border-bottom: var(--border-width) solid var(--border-color);
+    align-items: stretch; /* Stretches both left and right columns to equal height */
 }
 
 .contact-header {
     padding: 4rem;
-    border-right: var(--border-width) solid #FFFFFF;
+    border-right: var(--border-width) solid var(--border-color);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Forces vertical stacking so email sits below H2 */
     align-items: flex-start;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .contact-header h2 {
     font-size: clamp(3rem, 5vw, 5rem);
     line-height: 1;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .contact-direct-info {
     margin-top: 3rem;
     font-size: clamp(1rem, 1.8vw, 1.5rem);
     font-weight: 700;
-    color: #FFFFFF;
-    background-color: #090949;
-    overflow-wrap: anywhere;
+    color: var(--text-color);
+    word-break: break-word; /* Prevents email string from overflowing on smaller viewports */
 }
 
 .contact-direct-info a {
-    color: #FFFFFF;
-    background-color: #090949;
+    color: var(--text-color);
     text-decoration: underline;
     text-underline-offset: 4px;
 }
 
 .contact-direct-info a:hover {
     opacity: 0.8;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .plain-form {
@@ -481,38 +415,30 @@ p {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    background-color: #090949;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .form-group label {
     font-weight: 900;
     margin-bottom: 1rem;
     font-size: 1rem;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 .form-group input,
-.form-group select,
-.form-group option {
-    background-color: #090949;
-    color: #FFFFFF;
-    border: var(--border-width) solid #FFFFFF;
+.form-group select {
+    background: transparent;
+    border: var(--border-width) solid var(--border-color);
+    color: var(--text-color);
     font-family: inherit;
     font-size: 1.25rem;
     padding: 1.5rem;
@@ -523,16 +449,14 @@ p {
 
 .form-group input:focus,
 .form-group select:focus {
-    outline: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
-    color: #FFFFFF;
+    outline: none;
+    background-color: var(--accent-color);
 }
 
 .select-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    background-color: #090949;
 }
 
 .select-wrapper select {
@@ -540,22 +464,18 @@ p {
     -webkit-appearance: none;
     width: 100%;
     cursor: pointer;
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .select-icon {
     position: absolute;
     right: 1.5rem;
     pointer-events: none;
-    color: #FFFFFF;
-    background-color: transparent;
 }
 
 .submit-btn {
-    background-color: #090949;
-    color: #FFFFFF;
-    border: var(--border-width) solid #FFFFFF;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: var(--border-width) solid var(--border-color);
     padding: 2rem;
     font-size: 1.5rem;
     font-weight: 900;
@@ -563,21 +483,20 @@ p {
     text-transform: uppercase;
     cursor: pointer;
     margin-top: 1rem;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
 }
 
 .submit-btn:hover {
-    background-color: #090949;
-    color: #FFFFFF;
-    opacity: 0.85;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .form-message {
     display: none;
     padding: 1.5rem;
-    border: var(--border-width) solid #FFFFFF;
-    background-color: #090949;
-    color: #FFFFFF;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--text-color);
+    color: var(--bg-color);
     font-weight: 900;
     text-align: center;
     margin-top: 1rem;
@@ -595,21 +514,12 @@ p {
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: #090949;
-    color: #FFFFFF;
-}
-
-.footer-content {
-    background-color: #090949;
-    color: #FFFFFF;
 }
 
 .footer-content p {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 900;
     line-height: 1.2;
-    color: #FFFFFF;
-    background-color: #090949;
 }
 
 /* =========================================
@@ -619,27 +529,27 @@ p {
     .product-card {
         grid-template-columns: 1fr;
     }
-
+    
     .product-visual {
         border-right: none;
-        border-bottom: var(--border-width) solid #FFFFFF;
+        border-bottom: var(--border-width) solid var(--border-color);
         padding: 2rem;
     }
 
     .product-info {
         padding: 2rem;
     }
-
+    
     .contact {
         grid-template-columns: 1fr;
     }
-
+    
     .contact-header {
         border-right: none;
-        border-bottom: var(--border-width) solid #FFFFFF;
+        border-bottom: var(--border-width) solid var(--border-color);
         padding: 2rem;
     }
-
+    
     .plain-form {
         padding: 2rem;
     }
@@ -649,7 +559,7 @@ p {
     .nav-links {
         display: none;
     }
-
+    
     .hero {
         padding: 6rem 1.5rem 3rem;
     }
@@ -657,28 +567,28 @@ p {
     .process {
         flex-direction: column;
     }
-
+    
     .process-left {
         width: 100%;
         height: auto;
         border-right: none;
-        border-bottom: var(--border-width) solid #FFFFFF;
+        border-bottom: var(--border-width) solid var(--border-color);
         padding: 2rem 1.5rem;
         position: sticky;
         top: 68px;
-        background-color: #090949;
+        background: var(--bg-color);
         z-index: 10;
     }
-
+    
     .sticky-title {
         position: static;
         font-size: 2.5rem;
     }
-
+    
     .process-right {
         width: 100%;
     }
-
+    
     .process-step {
         min-height: 50vh;
         padding: 3rem 1.5rem;
