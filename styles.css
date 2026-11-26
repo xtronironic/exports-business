@@ -2,7 +2,7 @@
    VARIABLES & RESET
 ========================================= */
 :root {
-    --bg-color: #090949;
+    --bg-color: #111184;
     --text-color: #FFFFFF;
     --border-color: #FFFFFF;
     --accent-color: #222222;
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-    background-color: #090949;
+    background-color: #111184;
     color: var(--text-color);
     font-family: var(--font-main);
     text-transform: uppercase;
