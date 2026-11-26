@@ -21,7 +21,7 @@ html {
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: #090949;
     color: var(--text-color);
     font-family: var(--font-main);
     text-transform: uppercase;
